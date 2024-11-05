@@ -1,0 +1,21 @@
+public class helloworld {
+    public static void main(String[] args) {
+        String input = "aamalaalaam"; 
+        System.out.println(isPalindrome(input));
+    }
+    public static boolean isPalindrome(String str) {
+        int[] freq = new int[26]; 
+        for (char c : str.toCharArray()) {
+            if (Character.isLetter(c)) {
+                freq[Character.toLowerCase(c) - 'a']++;
+            }
+        }
+        int oddCount = 0;
+        for (int count : freq) {
+            if (count % 2 != 0) {
+                oddCount++;
+            }
+        }
+        return oddCount <= 1;
+    }
+}
