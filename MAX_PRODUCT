@@ -1,0 +1,62 @@
+import java.util.Arrays;
+
+public class MaxProduct {
+    public static void main(String[] args) {
+        int[] arr = {2, 4, 5, -10, 8, 3, 6};
+        System.out.println(master(arr));
+    }
+
+    public static int master(int[] arr) {
+        int n = arr.length;
+
+        // Convert all elements to their absolute values
+        for (int i = 0; i < n; i++) {
+            arr[i] = Math.abs(arr[i]);
+        }
+
+        // Sort the array
+        Arrays.sort(arr);
+
+        // Return the product of the two largest elements
+        return arr[n - 1] * arr[n - 2];
+    }
+}
+
+
+
+
+
+class HelloWorld {
+    public static void main(String[] args) {
+       
+       int[] arr = {2,4,5,-10,8,3,6};
+        System.out.println(master(arr));
+       
+    }
+     public static int master(int[] arr) {
+       int min1=Integer.MAX_VALUE;
+       int min2=Integer.MAX_VALUE;
+       int max1=Integer.MIN_VALUE;
+       int max2=Integer.MIN_VALUE;
+       for(int i:arr){
+           if(i>max1){
+               max2=max1;
+               max1=i;
+           }
+           else if(i>max2){
+               max2=i;
+           }
+           else if(i<min1){
+               min2=min1;
+               min1=i;
+           }
+           else if(i<min2){
+               min2=i;
+           }
+           
+       }
+       int c=min1*min2>max1*max2?min1*min2:max1*max2;
+          
+      return c;
+     }
+}hi
