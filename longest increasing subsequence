@@ -1,0 +1,35 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) 
+    {
+        int[] a={10,9,2,5,3,7,101,18};
+        System.out.println("longest subsequence is "+ lcs(a));
+    }
+    public static int lcs(int[] a)
+    {
+        int[] a1=new int[a.length];
+        int maxi=1;
+        for(int i=0;i<a.length;i++)
+        {
+            a1[i]=1;
+        }
+            int i;
+            int j;
+            for(i=1;i<a.length;i++)
+            {
+                for(j=0;j<i;j++)
+                {
+                    if(a[j]<a[i])
+                    {
+                       a1[i]=Math.max(a1[i],a1[j]+1); 
+                    }
+                     maxi=Math.max(a1[i],maxi);
+                }
+            }
+            return maxi;
+        }
+    }
+    
+    
+    
+    
