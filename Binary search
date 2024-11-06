@@ -1,0 +1,27 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6};
+        int st = 0;
+        int ed = arr.length - 1;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter key:");
+        int key = sc.nextInt();
+        System.out.println(binary(arr, st, ed, key));
+    }
+    public static int binary(int[] arr, int st, int ed, int key) {
+        while (st <= ed) {
+            int mid = st + (ed - st) / 2;
+            if (arr[mid] == key) {
+                return mid;
+            } else if (key < arr[mid]) {
+                ed = mid - 1;
+            } else {
+                st = mid + 1;
+            }
+        }
+        return -1;
+    }
+}
+
+
