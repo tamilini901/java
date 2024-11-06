@@ -1,0 +1,33 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter input:");
+        int ip1=sc.nextInt();
+        System.out.println("enter input:");
+        int ip2=sc.nextInt();
+        System.out.println("enter input:");
+        int ip3=sc.nextInt();
+        
+        System.out.println(Calculate(ip1,ip2,ip3));
+    }
+    public static int Calculate(int ip1,int ip2,int ip3){
+        ArrayList<Integer> digits1=extractdigits(ip1);
+        ArrayList<Integer> digits2=extractdigits(ip2);
+        ArrayList<Integer> digits3=extractdigits(ip3);
+        int a=Collections.max(digits1)+Collections.max(digits2)+Collections.max(digits3);
+         int b=Collections.min(digits1)+Collections.min(digits2)+Collections.min(digits3);
+        return a+b;
+        
+    }
+    public static ArrayList<Integer> extractdigits(int ip){
+        ArrayList<Integer> a=new ArrayList<>();
+        int temp;
+        while(ip!=0){
+            temp=ip%10;
+            a.add(temp);
+            ip/=10;
+            
+        }return a;
+    }
+}         
