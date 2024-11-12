@@ -1,0 +1,32 @@
+import java.util.HashSet;
+import java.util.Set;
+
+class Main {
+    public static void main(String[] args) {
+        int n = 68;
+        Set<Integer> s = new HashSet<>();
+       
+        while (n != 1 && !s.contains(n)) {
+            s.add(n);
+            n = sumOfSquaresOfDigits(n);
+        }
+        System.out.println(s);
+        
+        if (n == 1) {
+            System.out.println("round number");
+        } else {
+            System.out.println("not round number");
+        }
+    }
+
+    public static int sumOfSquaresOfDigits(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int digit = n % 10;
+            sum += digit * digit;
+            n /= 10;
+        }
+        return sum;
+    }
+}
+
